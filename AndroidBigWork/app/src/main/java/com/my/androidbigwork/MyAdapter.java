@@ -50,6 +50,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     public void setData(List<VideoInfo> myDataset) { videoData = myDataset; }
 
     @Override
+	//将view封装在viewHolder中
     public MyAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item, parent, false);
@@ -59,9 +60,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
+	//渲染数据到view中
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        //get element from my dataset at this position
-        //replace the contents of the view with that element
 
         holder.videoView.setVideoPath(videoData.get(position).feedurl);
         holder.videoView.setMediaController(new MediaController(mContext));
